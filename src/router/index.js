@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import itemList from '@/view/itemList'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
-  ]
+	mode: 'history',
+	fallback: false,
+	scrollBehavior: () => ({ y: 0 }),
+  	routes: [
+    	{
+      		path: '/top',
+      		component: itemList
+    	}
+  	]
 })
