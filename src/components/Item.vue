@@ -1,14 +1,14 @@
 <template>
 	<li class="news-item">
-		<span>{{item.score}}</span>
+		<span class="score">{{item.score}}</span>
 		<span class="title">
 			<template>
 				<a :href="item.url" target="_blank"> {{ item.title }}</a>
-				<span> (host)</span>
+				<span class="host"> (host)</span>
 			</template>
 		</span>
 		<br>
-		<span>
+		<span class="meta">
 			<span v-if="item.type !== 'job'" class="by">
 				by {{ item.by }}
 			</span>
@@ -37,4 +37,22 @@
 		border-bottom 1px solid #eee
 		background-color #fff
 		list-style-type none
+		.score 
+			position absolute
+			top 50%
+			left 0
+			margin-top -10px
+			width 80px
+			font-size 1.1em
+			text-align center
+			color #f60
+		.title 
+			a
+				text-decoration none
+				color #34495e
+			.host
+				font-size 0.85em
+	.meta 
+		font-size 0.85em
+		color #828282		
 </style>

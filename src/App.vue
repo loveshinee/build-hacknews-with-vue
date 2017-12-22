@@ -60,4 +60,9 @@ header
       vertical-align middle
     .gitPage 
       float right
+
+.view 
+  position relative
+  max-width 800px 
+  margin 0 auto
 </style>

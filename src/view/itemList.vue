@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="news-view">
 		<div class="news-list">
 			<transition-group tag="ul" name="item">
 				<item v-for="item in items" :key="item.id" :item="item"></item>	
@@ -31,3 +31,10 @@ import Item from '../components/Item.vue'
 		}
 	}
 </script>
+
+<style lang="stylus">
+	.news-view 
+		width 100%
+	
+	
+</style>
