@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import itemList from '@/view/itemList'
 
 Vue.use(Router)
+
+import { createItemList } from '../view/createItemList'
 
 export default new Router({
 	mode: 'history',
@@ -10,8 +11,8 @@ export default new Router({
 	scrollBehavior: () => ({ y: 0 }),
   	routes: [
     	{
-      		path: '/top',
-      		component: itemList
+      		path: '/top/:page(\\d+)?',
+      		component: createItemList('top')
     	}
   	]
 })

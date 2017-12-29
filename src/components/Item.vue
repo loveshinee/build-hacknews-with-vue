@@ -4,7 +4,7 @@
 		<span class="title">
 			<template>
 				<a :href="item.url" target="_blank"> {{ item.title }}</a>
-				<span class="host"> (host)</span>
+				<span class="host"> ({{ item.url | host}})</span>
 			</template>
 		</span>
 		<br>
@@ -13,7 +13,7 @@
 				by {{ item.by }}
 			</span>
 			<span>
-				{{ item.time }} ago 
+				{{ item.time | timeAgo }} ago 
 			</span>
 			<span v-if="item.type !== 'job'">
 				| {{ item.descendants }}
@@ -23,8 +23,12 @@
 </template>
 
 <script>
+	import { timeAgo } from '@/lib/filter'
 	export default{
-		props: ['item']
+		props: ['item'],
+		serverCacheKey: ({ item: {id, __lastUpdated, time}}) => {
+			return `${id}::${__lastUpdated}::${timeAgo(time)}`
+		}
 	}
 </script>
 

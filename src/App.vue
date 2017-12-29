@@ -43,6 +43,7 @@ header
   background-color #f60
   width 100%
   height 55px
+  z-index 100
   nav 
     max-width 800px
     margin 0 auto
